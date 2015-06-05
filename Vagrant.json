@@ -1,0 +1,19 @@
+[
+    {
+        "hostname" : "mdcs50.dev",
+
+        "synced_folders" : [
+            {
+                "host" : "web/",
+                "guest" : "/var/www/html",
+                "group" : "www-data",
+                "mount_options" : [
+                    "dmode=775",
+                    "fmode=667"
+                ]
+            }
+        ],
+
+        "provision" : "https://gist.githubusercontent.com/ptahdunbar/8a4cbf6c9d7066fb69f8/raw/56c9edb7d501c906beae3d99e8ae47c9f930315c/gistfile1.txt"
+    }
+]
