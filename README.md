@@ -1,10 +1,9 @@
 # Welcome to MDCS50
 
 ## Requirements
-* [VirtualBox](https://www.virtualbox.org/)
-* [Vagrant](http://www.vagrantup.com/)
-* Text Editors for Mac: [Sublime](http://www.sublimetext.com/2), Windows: [Notepad ++](https://notepad-plus-plus.org/download/)
-* IDE: [PHPStorm](https://www.jetbrains.com/phpstorm/download/)
+* Local Development environment: [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* Text Editors: Mac: [Sublime](http://www.sublimetext.com/2) and Windows: [Notepad ++](https://notepad-plus-plus.org/download/)
+* PHP IDE: [PHPStorm](https://www.jetbrains.com/phpstorm/download/)
 
 # Installation
 
