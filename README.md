@@ -1,4 +1,4 @@
-Welcome to MDCS50
+# Welcome to MDCS50
 
 ## Requirements
 * [VirtualBox](https://www.virtualbox.org/)
@@ -14,8 +14,15 @@ cd mdcs50.dev
 vagrant up
 ```
 
-# Getting started
-* `vagrant up`
+# Getting started with Vagrant
+```
+vagrant status
+vagrant up
+vagrant reload
+vagrant provision
+vagrant ssh
+vagrant destroy
+```
 
 ## Getting Help
 
