@@ -1,4 +1,3 @@
 .vagrant/
 .idea/
 Vagrant.local.json
-web/index.html
