@@ -14,6 +14,6 @@
             }
         ],
 
-        "provision" : "https://gist.githubusercontent.com/ptahdunbar/8a4cbf6c9d7066fb69f8/raw/56c9edb7d501c906beae3d99e8ae47c9f930315c/gistfile1.txt"
+        "provision" : "provision.sh"
     }
 ]
