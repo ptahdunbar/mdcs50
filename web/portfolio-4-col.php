@@ -69,7 +69,7 @@
                                 <a href="portfolio-3-col.html">3 Column Portfolio</a>
                             </li>
                             <li class="active">
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="portfolio-4-col.php">4 Column Portfolio</a>
                             </li>
                             <li>
                                 <a href="portfolio-item.html">Single Portfolio Item</a>
@@ -137,26 +137,45 @@
 
         <!-- Projects Row -->
         <div class="row">
-            <div class="col-md-3 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
+	        <?php
+	        $portfolio = [
+		        [
+			        'container_class' => 'col-md-3 img-portfolio',
+			        'img_class' => 'img-responsive img-hover',
+			        'portfolio_link' => 'portfolio-item.html',
+			        'img_link' => 'http://lorempixel.com/g/750/450',
+		        ],
+		        [
+			        'container_class' => 'col-md-3 img-portfolio',
+			        'img_class' => 'img-responsive img-hover',
+			        'portfolio_link' => 'portfolio-item.html',
+			        'img_link' => 'http://lorempixel.com/g/750/450',
+		        ],
+		        [
+			        'container_class' => 'col-md-3 img-portfolio',
+			        'img_class' => 'img-responsive img-hover',
+			        'portfolio_link' => 'portfolio-item.html',
+			        'img_link' => 'http://lorempixel.com/g/750/450',
+		        ],
+		        [
+			        'container_class' => 'col-md-3 img-portfolio',
+			        'img_class' => 'img-responsive img-hover',
+			        'portfolio_link' => 'portfolio-item.html',
+			        'img_link' => 'http://lorempixel.com/g/750/450',
+		        ],
+	        ];
+
+	        foreach ( $portfolio as $portfolio_item ) {
+		        ?>
+		        <div class="<?= $portfolio_item['container_class']; ?>">
+			        <a href="<?= $portfolio_item['img_link']; ?>">
+				        <img class="<?= $portfolio_item['img_class']; ?>" src="<?= $portfolio_item['img_link']; ?>" alt="">
+			        </a>
+		        </div>
+	            <?php
+	        }
+
+	        ?>
         </div>
         <!-- /.row -->
 
