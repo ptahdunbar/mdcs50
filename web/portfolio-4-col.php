@@ -1,5 +1,7 @@
 <?php
 
+require_once 'bootstrap.php';
+
 $portfolio_collection = [
     [
         'container_class' => 'col-md-3 img-portfolio',
@@ -44,7 +46,7 @@ $portfolio_collection = array_merge(
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title><?= $website_settings['title']; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +79,7 @@ $portfolio_collection = array_merge(
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html"><?= $website_settings['home']; ?></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -158,13 +160,13 @@ $portfolio_collection = array_merge(
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Four Column Portfolio
-                    <small>Subheading</small>
+                <h1 class="page-header"><?= $website_settings['page_title']; ?>
+                    <small><?= $website_settings['page_description']; ?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a>
                     </li>
-                    <li class="active">Four Column Portfolio</li>
+                    <li class="active"><?= $website_settings['page_title']; ?></li>
                 </ol>
             </div>
         </div>
@@ -226,7 +228,7 @@ $portfolio_collection = array_merge(
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2015</p>
+                    <p><?= sprintf($website_settings['copyright'], date('Y')); ?></p>
                 </div>
             </div>
         </footer>
