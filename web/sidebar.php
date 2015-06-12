@@ -1,40 +1,3 @@
-<?php
-
-require_once 'bootstrap.php';
-
-$portfolio_collection = [
-    [
-        'container_class' => 'col-md-3 img-portfolio',
-        'img_class' => 'img-responsive img-hover',
-        'portfolio_link' => 'portfolio-item.php',
-        'img_link' => 'http://lorempixel.com/g/750/450',
-    ],
-    [
-        'container_class' => 'col-md-3 img-portfolio',
-        'img_class' => 'img-responsive img-hover',
-        'portfolio_link' => 'portfolio-item.php',
-        'img_link' => 'http://lorempixel.com/g/750/450',
-    ],
-    [
-        'container_class' => 'col-md-3 img-portfolio',
-        'img_class' => 'img-responsive img-hover',
-        'portfolio_link' => 'portfolio-item.php',
-        'img_link' => 'http://lorempixel.com/g/750/450',
-    ],
-    [
-        'container_class' => 'col-md-3 img-portfolio',
-        'img_class' => 'img-responsive img-hover',
-        'portfolio_link' => 'portfolio-item.php',
-        'img_link' => 'http://lorempixel.com/g/750/450',
-    ],
-];
-
-$portfolio_collection = array_merge(
-	$portfolio_collection,
-	$portfolio_collection,
-	$portfolio_collection
-);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +9,7 @@ $portfolio_collection = array_merge(
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $website_settings['title']; ?></title>
+    <title>Modern Business - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +42,7 @@ $portfolio_collection = array_merge(
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><?= $website_settings['home']; ?></a>
+                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -93,7 +56,7 @@ $portfolio_collection = array_merge(
                     <li>
                         <a href="contact.php">Contact</a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
@@ -105,7 +68,7 @@ $portfolio_collection = array_merge(
                             <li>
                                 <a href="portfolio-3-col.php">3 Column Portfolio</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="portfolio-4-col.php">4 Column Portfolio</a>
                             </li>
                             <li>
@@ -127,13 +90,13 @@ $portfolio_collection = array_merge(
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="full-width.php">Full Width Page</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="sidebar.php">Sidebar Page</a>
                             </li>
                             <li>
@@ -160,64 +123,46 @@ $portfolio_collection = array_merge(
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><?= $website_settings['page_title']; ?>
-                    <small><?= $website_settings['page_description']; ?></small>
+                <h1 class="page-header">Sidebar Page
+                    <small>Subheading</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>
                     </li>
-                    <li class="active"><?= $website_settings['page_title']; ?></li>
+                    <li class="active">Sidebar Page</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
+        <!-- Content Row -->
         <div class="row">
-	        <?php
-
-	        foreach ( $portfolio_collection as $portfolio_item ) {
-		        ?>
-		        <div class="<?= $portfolio_item['container_class']; ?>">
-			        <a href="<?= $portfolio_item['img_link']; ?>">
-				        <img class="<?= $portfolio_item['img_class']; ?>" src="<?= $portfolio_item['img_link']; ?>" alt="">
-			        </a>
-		        </div>
-	            <?php
-	        }
-
-	        ?>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="index.php" class="list-group-item">Home</a>
+                    <a href="about.php" class="list-group-item">About</a>
+                    <a href="services.php" class="list-group-item">Services</a>
+                    <a href="contact.php" class="list-group-item">Contact</a>
+                    <a href="portfolio-1-col.php" class="list-group-item">1 Column Portfolio</a>
+                    <a href="portfolio-2-col.php" class="list-group-item">2 Column Portfolio</a>
+                    <a href="portfolio-3-col.php" class="list-group-item">3 Column Portfolio</a>
+                    <a href="portfolio-4-col.php" class="list-group-item">4 Column Portfolio</a>
+                    <a href="portfolio-item.php" class="list-group-item">Single Portfolio Item</a>
+                    <a href="blog-home-1.php" class="list-group-item">Blog Home 1</a>
+                    <a href="blog-home-2.php" class="list-group-item">Blog Home 2</a>
+                    <a href="blog-post.php" class="list-group-item">Blog Post</a>
+                    <a href="full-width.php" class="list-group-item">Full Width Page</a>
+                    <a href="sidebar.php" class="list-group-item active">Sidebar Page</a>
+                    <a href="faq.php" class="list-group-item">FAQ</a>
+                    <a href="404.php" class="list-group-item">404</a>
+                    <a href="pricing.php" class="list-group-item">Pricing Table</a>
+                </div>
+            </div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <h2>Section Heading</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -228,7 +173,7 @@ $portfolio_collection = array_merge(
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p><?= sprintf($website_settings['copyright'], date('Y')); ?></p>
+                    <p>Copyright &copy; Your Website 2015</p>
                 </div>
             </div>
         </footer>
