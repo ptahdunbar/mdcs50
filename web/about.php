@@ -1,5 +1,4 @@
 <?php require_once 'header.php'; ?>
-
 <?php require_once 'carousel.php'; ?>
 
     <!-- Page Content -->
@@ -182,26 +181,4 @@
         </div>
         <!-- /.row -->
 
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2015</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+<?php require_once 'footer.php'; ?>
