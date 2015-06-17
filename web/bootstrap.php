@@ -1,5 +1,7 @@
 <?php
 
+require_once 'functions.php';
+
 $website_settings = [
 	'title' => 'Pirate Islands, LLC',
 	'home' => 'Pirate Life',
@@ -40,25 +42,3 @@ $portfolio_collection = array_merge(
 	$portfolio_collection,
 	$portfolio_collection
 );
-
-$carousels = [
-	'about' => [
-	],
-	'home' => [
-	],
-];
-
-$about_carousel = [
-	[
-		'img_url' => 'http://placehold.it/1900x1080&text=Slide One',
-		'caption' => 'Caption 1',
-	],
-	[
-		'img_url' => 'http://placehold.it/1900x1080&text=Slide Two',
-		'caption' => 'Caption 2',
-	],
-	[
-		'img_url' => 'http://placehold.it/1900x1080&text=Slide Three',
-		'caption' => 'Caption 3',
-	],
-];
