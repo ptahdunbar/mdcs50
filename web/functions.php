@@ -6,15 +6,17 @@
  * @param string $current
  * @return string
  */
-function getCurrentPage($current = null)
+function getCurrentPage()
 {
-	if ( is_null($current) ) {
-		$current = $_SERVER['REQUEST_URI'];
-	}
+	$get_request = function($current = null){
+		if ( is_null($current) ) {
+			$current = $_SERVER['REQUEST_URI'];
+		}
 
-	if ($current == '/') {
-		$current = '/index.php';
-	}
+		return $current;
+	};
+
+	$current = $get_request();
 
 	return $current;
 }
@@ -27,10 +29,6 @@ function getCurrentPage($current = null)
  */
 function getCarousel($id = null)
 {
-	if ( ! $id ) {
-		return [];
-	}
-
 	$carousels = [
 		'/about.php' => [
 			[
@@ -62,6 +60,10 @@ function getCarousel($id = null)
 			],
 		],
 	];
+
+	if ( ! $id ) {
+		return [];
+	}
 
 	if ( ! isset($carousels[$id]) ) {
 		return [];
