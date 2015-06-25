@@ -115,9 +115,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #
       config.vm.define "#{hostname}" do |configure_node|
 
-        # Fixes annoying error: 'stdin: is not a tty'
-        configure_node.ssh.pty = true
-
         # Set the box to use for this node
         configure_node.vm.box = box
 
@@ -132,19 +129,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             if node["provision"].kind_of? String
                 configure_node.vm.provision "shell", path: "#{node["provision"]}"
             else
-                node["provision"].each do |path|
-                    configure_node.vm.provision "shell", path: "#{path}"
-                end
-            end
-        end
+                node["provision"].each do |script|
 
-        # backwards compat.
-        if node["scripts"]
-            if node["scripts"].kind_of? String
-                configure_node.vm.provision "shell", path: "#{node["scripts"]}"
-            else
-                node["scripts"].each do |path|
-                    configure_node.vm.provision "shell", path: "#{path}"
+                    if script.kind_of? String
+                        configure_node.vm.provision "shell", path: "#{script}"
+                    else
+                        next unless ( script.include?('path') or script.include?('inline') )
+
+                        #puts "script: #{script}"
+
+                        config.vm.provision "shell" do |s|
+                            s.inline = script['inline'] if script['inline']
+                            s.path = script['path'] if script['path']
+                            s.args = script['args'] if script['args']
+                            s.privileged = script['privileged'] if script['privileged']
+                            s.binary = script['binary'] if script['binary']
+                            s.upload_path = script['upload_path'] if script['upload_path']
+                            s.keep_color = script['keep_color'] if script['keep_color']
+                            s.powershell_args = script['powershell_args'] if script['powershell_args']
+                        end
+                    end
                 end
             end
         end
@@ -224,8 +228,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             if node["settings"]["disable_default_synced_folder"]
                 configure_node.configure_node.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
             end
+        end
 
-            if node["settings"]["optimize_vm"]
+        #
+        # Provider: Virtualbox
+        #
+        configure_node.vm.provider :virtualbox do |virtualbox, override|
+
+            # DNS fix
+            virtualbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+            virtualbox.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+
+            if node["settings"]
+                virtualbox.gui = true if node["settings"]["gui"]
+
+                virtualbox.cpus = node["settings"]["cpus"] if node["settings"]["cpus"]
+                virtualbox.memory = node["settings"]["memory"] if node["settings"]["memory"]
+            end
+
+            if node["settings"] and node["settings"].include? "disable_vm_optimization"
                 host = RbConfig::CONFIG['host_os']
 
                 # Give VM 1/4 system memory & access to all cpu cores on the host
@@ -245,22 +266,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
                 virtualbox.memory = memory
                 virtualbox.cpus = cpus
-            end
-        end
-
-        #
-        # Provider: Virtualbox
-        #
-        configure_node.vm.provider :virtualbox do |virtualbox, override|
-
-            # DNS fix
-            virtualbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-            virtualbox.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-
-            if node["settings"]
-                virtualbox.gui = true if node["settings"]["gui"]
-                virtualbox.cpus = node["settings"]["cpus"] if node["settings"]["cpus"]
-                virtualbox.memory = node["settings"]["memory"] if node["settings"]["memory"]
             end
         end
 
