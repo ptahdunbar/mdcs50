@@ -4,7 +4,7 @@
 
         "synced_folders" : [
             {
-                "host" : "web/",
+                "host" : ".",
                 "guest" : "/var/www/html",
                 "group" : "www-data",
                 "mount_options" : [

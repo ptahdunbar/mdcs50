@@ -5,7 +5,7 @@
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<?php $carousel_length = count($carousel) - 1;  ?>
-		<?php for ($index = $carousel_length ; $index >= 0; $index--) : ?>
+		<?php for ($index = $carousel_length ; $carousel_length > 1 && $index >= 0; $index--) : ?>
 			<li data-target="#myCarousel" data-slide-to="<?= $index; ?>" <?= ($index == $carousel_length) ? 'class="active"' : ''; ?>></li>
 		<?php endfor; ?>
 	</ol>
